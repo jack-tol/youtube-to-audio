@@ -1,5 +1,4 @@
-import pytest
-from youtube_audio_extractor.downloader import Downloader
+from youtube_to_audio.downloader import Downloader
 
 def test_downloader():
     url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"

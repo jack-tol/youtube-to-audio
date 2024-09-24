@@ -11,7 +11,7 @@ class Converter:
             raise ValueError(f"Invalid audio format. Supported formats: {self.SUPPORTED_FORMATS}")
 
         if not output_audio_path:
-            output_audio_path = f"audio.{output_format.lower()}"  # Default name if none provided
+            output_audio_path = f"audio.{output_format.lower()}"
 
         try:
             video_clip = VideoFileClip(self.video_file_path)

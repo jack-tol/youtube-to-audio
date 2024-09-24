@@ -1,79 +1,88 @@
-# YouTube to Audio
+# YouTube-to-Audio CLI Tool
 
-A Python package that downloads YouTube videos and extracts audio in multiple formats such as WAV, MP3, OGG, AAC, and FLAC. You can also specify the YouTube client type and customize the audio output file name.
+A lightweight Python package and command-line interface (CLI) tool that extracts audio from YouTube videos and playlists in multiple formats, such as MP3, WAV, OGG, AAC, and FLAC.
 
 ## Features
 
-- Download YouTube videos using different clients (e.g., `MWEB`, `WEB`)
-- Extract audio in various formats: WAV, MP3, OGG, AAC, and FLAC
+- Extract audio from YouTube videos or playlists in various formats: MP3, WAV, OGG, AAC, and FLAC
 - Customize the output audio file name
-- Clean up temporary video files after extraction
+- By default, names the audio file after the YouTube video title
+- Extract audio from YouTube videos using different clients (e.g., `MWEB`, `WEB`, `ANDROID`)
+- Automatically clean up temporary video files after extraction
 
 ## Installation
 
-To install the package from PyPI:
+To install the package from PyPI, run the following command:
 
 ```
-pip install youtube-to-audio
+pip install youtube_to_audio
 ```
 
 ## Usage
 
-### 1. Download and Extract Audio in Default Format (WAV)
+### 1. Download and Extract Audio from a Single Video in the Default Format (MP3)
 
 ```
-youtube-to-audio "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+youtube-to-audio "https://www.youtube.com/watch?v=WysanSNOjMc"
 ```
 
-This command will download the YouTube video and extract the audio in WAV format with the default name `audio.wav`.
+This command extracts the audio in MP3 format and saves it with the same name as the YouTube video title (e.g., `Your Video Title.mp3`).
 
-### 2. Extract Audio in MP3 Format
-
-```
-youtube-to-audio "https://www.youtube.com/watch?v=dQw4w9WgXcQ" mp3
-```
-
-This will extract the audio in MP3 format as `audio.mp3`.
-
-### 3. Specify a Custom Audio File Name
+### 2. Extract Audio from a Playlist in MP3 Format
 
 ```
-youtube-to-audio "https://www.youtube.com/watch?v=dQw4w9WgXcQ" mp3 --output my_custom_name
+youtube-to-audio "https://www.youtube.com/playlist?list=PLRBp0Fe2GpgnymQGm0yIxcdzkQsPKwnBD"
 ```
 
-This will extract the audio in MP3 format and save it as `my_custom_name.mp3`.
+This command extracts the audio from all videos in the playlist and saves each file with the same name as the YouTube video title (e.g., `Video1.mp3`, `Video2.mp3`, etc.).
 
-### 4. Specify a YouTube Client (e.g., MWEB or WEB)
-
-You can specify the YouTube client (for example, `MWEB` or `WEB`) using the `--client` argument:
+### 3. Extract Audio in WAV Format
 
 ```
-youtube-to-audio "https://www.youtube.com/watch?v=dQw4w9WgXcQ" mp3 --client WEB
+youtube-to-audio "https://www.youtube.com/watch?v=WysanSNOjMc" wav
 ```
 
-This will use the `WEB` client instead of the default `MWEB`.
+This command extracts the audio in WAV format and saves it with the YouTube video title (e.g., `Your Video Title.wav`).
 
-### 5. Enable Verbose Logging
-
-If you want more detailed output (for example, to debug the download process), use the `--verbose` flag:
+### 4. Specify a Custom Audio File Name
 
 ```
-youtube-to-audio "https://www.youtube.com/watch?v=dQw4w9WgXcQ" mp3 --verbose
+youtube-to-audio "https://www.youtube.com/watch?v=WysanSNOjMc" wav --output my_custom_name
 ```
 
-This will output detailed logs during the download and extraction process.
+This command extracts the audio in WAV format and saves it as `my_custom_name.wav`.
+
+### 5. Extract Audio Using a Specific YouTube Client (e.g., MWEB or WEB)
+
+You can extract audio from YouTube videos or playlists using different clients (for example, `MWEB`, `WEB`, or `ANDROID`) by specifying the `--client` argument:
+
+```
+youtube-to-audio "https://www.youtube.com/watch?v=WysanSNOjMc" flac --client WEB
+```
+
+> **Note:** If audio extraction fails with one client, try switching to a different client (e.g., from `MWEB` to `WEB` or `ANDROID`) to resolve the issue.
+
+### 6. Enable Verbose Logging
+
+To enable detailed logging (useful for debugging the download or extraction process), use the `--verbose` flag:
+
+```
+youtube-to-audio "https://www.youtube.com/watch?v=WysanSNOjMc" aac --verbose
+```
+
+This will display detailed logs during the download and extraction process.
 
 ## Development
 
-If you want to contribute or modify the package locally, clone the repository and install it locally using:
+If you'd like to contribute or modify the package locally, clone the repository and install the development dependencies:
 
 ```
-pip install -e .
+pip install -r requirements-dev.txt
 ```
 
 ### Running Tests
 
-To run the tests, you can use `pytest`:
+To run tests, you can use `pytest` (after installing the development dependencies):
 
 ```
 pytest
@@ -83,4 +92,4 @@ pytest
 
 ### License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

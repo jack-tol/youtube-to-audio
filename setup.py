@@ -2,19 +2,18 @@ from setuptools import setup, find_packages
 
 setup(
     name="youtube-to-audio",
-    version="0.1.0",
-    description="A Python package to download YouTube videos and extract audio in multiple formats.",
+    version="0.1.3",
+    description="A lightweight Python package and command-line interface (CLI) tool that extracts audio from YouTube videos and playlists in multiple formats.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    author="Your Name",
+    author="Jack Tol",
     author_email="contact@jacktol.net",
-    url="https://github.com/yourusername/youtube-to-audio",
+    url="https://github.com/jack-tol/youtube-to-audio",
     packages=find_packages(),
     install_requires=[
         "pytubefix",
         "moviepy",
         "argparse",
-        "pytest"
     ],
     entry_points={
         'console_scripts': [
