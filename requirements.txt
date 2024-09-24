@@ -1,3 +1,4 @@
 moviepy
 argparse
 pytubefix
+pytest

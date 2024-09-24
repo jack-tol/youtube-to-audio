@@ -1,0 +1,4 @@
+.pytest_cache/
+
+tests/__pycache__/
+youtube_to_audio/__pycache__/
