@@ -29,6 +29,7 @@ class YouTubeDownloader:
             'noprogress': True,
             'no_warnings': True,
             'yes_playlist': True,
+            'ignoreerrors': is_playlist,
         }
 
         try:
